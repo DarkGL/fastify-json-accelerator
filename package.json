@@ -1,0 +1,59 @@
+{
+    "name": "fastify-json-accelerator",
+    "version": "1.0.0",
+    "description": "Fastify plugin that integrates json-accelerator for faster JSON serialization",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "type": "module",
+    "scripts": {
+        "ci": "npm run format && npm run lint && npm run build && npm run check-exports",
+        "build": "npx tsc --build",
+        "format": "npx @biomejs/biome format --write ./src",
+        "lint": "npx @biomejs/biome lint --write ./src",
+        "prepare": "husky",
+        "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+        "local-release": "changeset version && changeset publish",
+        "prepublishOnly": "npm run ci"
+    },
+    "keywords": [
+        "fastify",
+        "fastify-plugin",
+        "json",
+        "serialization",
+        "performance",
+        "stringify",
+        "accelerator"
+    ],
+    "author": "Rafal Wiecek <contact@darkgl.com> (https://x.com/darkgl_)",
+    "license": "MIT",
+    "dependencies": {
+        "fastify-plugin": "^5.0.1",
+        "json-accelerator": "^0.1.5"
+    },
+    "devDependencies": {
+        "@arethetypeswrong/cli": "^0.17.4",
+        "@biomejs/biome": "1.9.4",
+        "@changesets/cli": "^2.29.2",
+        "@types/node": "^22.14.1",
+        "fastify": "^5.3.2",
+        "husky": "^9.1.7",
+        "typescript": "^5.8.3"
+    },
+    "peerDependencies": {
+        "fastify": "^5.3.2"
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DarkGL/fastify-json-accelerator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DarkGL/fastify-json-accelerator/issues"
+    },
+    "homepage": "https://github.com/DarkGL/fastify-json-accelerator#readme",
+    "files": [
+        "dist"
+    ]
+}
